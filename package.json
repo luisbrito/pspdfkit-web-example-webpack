@@ -1,0 +1,45 @@
+{
+  "name": "pspdfkit-web-example-webpack",
+  "version": "2018.3.0",
+  "description": "Standalone and offline PDF viewer web application built with PSPDFKit for Web and Webpack",
+  "main": "index.js",
+  "keywords": [
+    "wasm",
+    "web",
+    "assembly",
+    "pdf",
+    "pdf",
+    "viewer",
+    "webpack",
+    "asm.js",
+    "offline",
+    "indexeddb"
+  ],
+  "author": "PSPDFKit (https://pspdfkit.com)",
+  "homepage": "https://pspdfkit.com/web",
+  "license": "SEE LICENSE IN https://pspdfkit.com/license.pdf",
+  "readme": "https://pspdfkit.com/guides/web",
+  "dependencies": {
+    "drag-drop": "^2.13.3",
+    "serve": "^6.5.4"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.5.1",
+    "cross-env": "^5.1.4",
+    "eslint": "^4.19.1",
+    "html-webpack-plugin": "^3.2.0",
+    "prettier": "^1.11.1",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.3"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.js",
+    "prestart": "node bin/verify-install.js && npm run build",
+    "start": "serve --port 8080 ./dist",
+    "prestart:dev": "node bin/verify-install.js",
+    "start:dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.js --progress",
+    "lint": "eslint src config",
+    "format": "prettier --write \"{src,config}/{*/*.js,*.js}\""
+  }
+}
